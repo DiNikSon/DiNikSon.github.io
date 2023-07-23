@@ -1,0 +1,54 @@
+@import url("fonts/nunito/style.css");
+@import url("fonts/NeueFrutigerWorld/style.css");
+
+body.page {
+	background: #111111;
+	background-image: radial-gradient(ellipse closest-side at 50% 50%,#1b2528,#0a0a0c)
+}
+
+body.menu {
+	background: #111111;
+	margin: 0;
+	padding: 0;
+	overflow: hidden
+}
+
+tr.menu td {
+	color: #F9F9F9;
+	font-size: 15px;
+	font-family: 'Neue Frutiger';
+	text-align: center;
+}
+
+div.divbasic {
+	background: #111318;
+	padding: 10px 20px 10px 20px; 
+	margin: 20px;
+	color: #c4b998;
+	font-size: 18px;
+	font-family: 'NunitoRegular';
+	text-align: justify;
+	border: 1px solid #937341;
+}
+
+.divbasic a {
+	font-family: 'NunitoLink';
+	text-decoration: none;
+}
+
+.divbasic a:link {
+  color: #c4b998;
+}
+
+.divbasic a:visited {
+  color: #c4b998;
+}
+
+.divbasic a:hover {
+  color: #c4b998;
+  text-decoration: underline;
+}
+
+.divbasic a:active {
+  color: #c4b998;
+}
