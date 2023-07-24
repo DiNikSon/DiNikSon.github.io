@@ -3,7 +3,7 @@
 
 body.page {
 	background: #111111;
-	background-image: radial-gradient(ellipse closest-side at 50% 50%,#1b2528,#0a0a0c)
+	background-image: radial-gradient(ellipse closest-side at 50% 50%,#1b2528,#0a0a0c);
 }
 
 body.menu {
@@ -13,11 +13,24 @@ body.menu {
 	overflow: hidden
 }
 
-tr.menu td {
-	color: #F9F9F9;
-	font-size: 15px;
-	font-family: 'Neue Frutiger';
-	text-align: center;
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #111318;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #937341;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #c4b998;
 }
 
 div.divbasic {
@@ -29,6 +42,28 @@ div.divbasic {
 	font-family: 'NunitoRegular';
 	text-align: justify;
 	border: 1px solid #937341;
+}
+
+.divbasic h2 {
+	width: 100%;
+	text-align: center;
+	margin: 5px;
+	color: #937341;
+}
+
+.divbasic hr {
+	margin: 0;
+	margin-bottom: 5px;
+	padding: 0;
+	height: 2px;
+	border: none;
+	background: linear-gradient(45deg, #111318, #937341, #111318);
+}
+
+.divbasic img {
+	margin: auto;
+	width: 100%;
+	display: block;
 }
 
 .divbasic a {
