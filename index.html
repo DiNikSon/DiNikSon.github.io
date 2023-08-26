@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="style.css" rel="stylesheet">
     <title>Портфолио</title>
   </head>
-  <frameset rows="50px,*" border="0">
-    <frame style="background-color: #111111;" src="menu.html">
-    <frame style="background-image: radial-gradient(ellipse closest-side at 50% 50%,#1b2528,#0a0a0c);" src="main.html" name="page">
-  </frameset>
+  <body class="frame">
+	<div class="menu">
+		<iframe src="menu.html" height="100%" frameborder="0"></iframe>
+	</div>
+	<div class="page">
+		<iframe src="main.html" height="100%" name="page" id="page" frameborder="0"></iframe>
+	</div>
+  </body>
 </html>
