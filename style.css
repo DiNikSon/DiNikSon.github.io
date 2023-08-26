@@ -109,6 +109,13 @@ div.divbasic {
 	color: #937341;
 }
 
+.divbasic h3 {
+	width: 100%;
+	text-align: center;
+	margin: 5px;
+	color: #c4b998;
+}
+
 .divbasic h4 {
 	margin: 5px;
 }
@@ -120,6 +127,10 @@ div.divbasic {
 	height: 2px;
 	border: none;
 	background: linear-gradient(45deg, #111318, #937341, #111318);
+}
+
+.divbasic h3 + hr {
+	background: linear-gradient(90deg, #111318, #c4b998, #111318);
 }
 
 .divbasic img {

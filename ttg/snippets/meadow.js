@@ -3,6 +3,12 @@ function setup(){
 	ctx1 = cnv1.getContext("2d");
 	cnv1.addEventListener('mousedown',cnv1_click)
 	cur1 = 0;
+	
+	cnv2 = document.getElementById("cnv2");
+	ctx2 = cnv1.getContext("2d");
+	cnv2.addEventListener('mousedown',cnv2_click)
+	//cnv2_setup();
+	
 	beehive = new Image();
 	beehive.onload = cnv1_draw;
 	beehive.src = 'snippets/res/beehive.png';
@@ -51,3 +57,10 @@ function cnv1_draw(){
 		
   }
 }
+
+function cnv2_click(event){
+	cur1 = Math.floor(event.offsetX/200)
+	cnv1_draw()
+}
+
+
