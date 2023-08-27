@@ -5,13 +5,21 @@ function setup(){
 	cur1 = 0;
 	
 	cnv2 = document.getElementById("cnv2");
-	ctx2 = cnv1.getContext("2d");
+	ctx2 = cnv2.getContext("2d");
 	cnv2.addEventListener('mousedown',cnv2_click)
-	//cnv2_setup();
+	M2 = [[-1,-1,-1,1,-1],
+       [-1,-1,-1,-1,2],
+       [-1,-1,0,-1,-1],
+       [2,-1,-1,1,-1],
+       [2,0,-1,-1,-1]];
 	
 	beehive = new Image();
 	beehive.onload = cnv1_draw;
 	beehive.src = 'snippets/res/beehive.png';
+	
+	flowers = new Image();
+	flowers.onload = cnv2_draw;
+	flowers.src = 'snippets/res/flowers.png';
 }
 
 function cnv1_click(event){
@@ -59,8 +67,59 @@ function cnv1_draw(){
 }
 
 function cnv2_click(event){
-	cur1 = Math.floor(event.offsetX/200)
-	cnv1_draw()
+	let x =  Math.floor(event.offsetX/80);
+	let y =  Math.floor(event.offsetY/80);
+	if(M2[x][y]==-1){
+		M2[x][y]=Math.floor(Math.random()*3);
+		setTimeout(setfl,50,x,y)
+	}else{
+		M2=[[-1,-1,-1,1,-1],
+       [-1,-1,-1,-1,2],
+       [-1,-1,0,-1,-1],
+       [2,-1,-1,1,-1],
+       [2,0,-1,-1,-1]];
+	}
+  cnv2_draw();
+}
+
+function cnv2_draw(){
+	ctx = ctx2;
+	ctx.clearRect(0, 0, cnv2.width, cnv2.height)
+	ctx.fillStyle="#12C412"
+	for(let i = 0; i < 5; i++)
+    for(let j = 0; j < 5; j++){
+		ctx.beginPath()
+		ctx.rect(i*80,j*80,75,75)
+		ctx.fill()
+		ctx.drawImage(flowers,0,M2[i][j]*75,75,75,i*80,j*80,75,75)
+    }
+}
+
+function setfl(x,y){
+  let P=[[0,5,4,6,6,6,6],
+         [5,1,3,6,6,6,6],
+         [4,3,2,6,6,6,6],
+         [6,6,6,3,6,6,6],
+         [6,6,6,6,4,6,6],
+         [6,6,6,6,6,5,6],
+         [6,6,6,6,6,6,6]]
+  if(x>1)if(M2[x-1][y]==-1&&M2[x-2][y]!=-1){
+    M2[x-1][y]=P[M2[x][y]][M2[x-2][y]]
+    setTimeout(setfl,100,x-1,y)
+  }
+  if(x<3)if(M2[x+1][y]==-1&&M2[x+2][y]!=-1){
+    M2[x+1][y]=P[M2[x][y]][M2[x+2][y]]
+    setTimeout(setfl,100,x+1,y)
+  }
+  if(y>1)if(M2[x][y-1]==-1&&M2[x][y-2]!=-1){
+    M2[x][y-1]=P[M2[x][y]][M2[x][y-2]]
+    setTimeout(setfl,100,x,y-1)
+  }
+  if(y<3)if(M2[x][y+1]==-1&&M2[x][y+2]!=-1){
+    M2[x][y+1]=P[M2[x][y]][M2[x][y+2]]
+    setTimeout(setfl,100,x,y+1)
+  }
+  cnv2_draw();
 }
 
 
